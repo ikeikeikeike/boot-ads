@@ -15,6 +15,19 @@ ipdb = "*"
 django-grappelli = "*"
 
 [dev-packages]
+django-debug-toolbar = "*"
+django-extensions = "*"
+pytest = "*"
+coverage = "*"
+pytest-django = "*"
+"pytest-flake8" = "*"
+"pytest-pep8" = "*"
+pytest-cache = "*"
+"pep8" = "*"
+pytest-xdist = "*"
+factory-boy = "*"
+fake-factory = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.7"
