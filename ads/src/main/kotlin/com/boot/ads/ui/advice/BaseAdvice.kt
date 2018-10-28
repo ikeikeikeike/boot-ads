@@ -14,7 +14,7 @@ class BaseAdvice(private val usecase: CategoryUsecase) {
 
     @ModelAttribute
     fun addAttributes(model: Model) {
-        model["title"] = "Open Innovation"
+        model["title"] = "Ads"
         model["description"] = "Description here"
         model["categories"] = usecase.findAll(PageRequest.of(0, Integer.MAX_VALUE))
     }
