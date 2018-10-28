@@ -5,6 +5,14 @@ name = "pypi"
 
 [packages]
 django = "*"
+gunicorn = "*"
+netifaces = "*"
+mysqlclient = "*"
+colorlog = "*"
+django-tinymce = "*"
+ipython = "*"
+ipdb = "*"
+django-grappelli = "*"
 
 [dev-packages]
 
