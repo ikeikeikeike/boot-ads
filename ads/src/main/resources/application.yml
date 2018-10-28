@@ -1,0 +1,59 @@
+spring.jackson.serialization.INDENT_OUTPUT: true
+
+spring:
+  application:
+    name: boot-ads
+  output:
+    ansi:
+      enabled: detect
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/ads_development?useSSL=false
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      connection-test-query: select 1
+      connection-timeout: 10000
+      maximum-pool-size: 2
+      minimum-idle: 2
+  jpa:
+    open-in-view: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        generate_statistics: true
+  #        ddl-auto: create
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+      write-durations-as-timestamps: true
+
+  devtools:
+    restart:
+      enabled: true
+#      exclude: "static/**, public/**"
+#      additional-exclude: "**/*.xml"
+#      additional-paths: ['src/main/resources/sql']
+#      trigger-file: .reload
+
+
+server:
+  port: 8080
+  address: 127.0.0.1
+
+#logging.file: demo.log
+#logging:
+#  file:
+#    max-size: 50MB
+#    max-history: 10
+#  level:
+#    root: info
+#    org.springframework: info
+#    org.hibernate: info
+#    org.hibernate.SQL: debug
+#    com.example.demo: debug
+#
