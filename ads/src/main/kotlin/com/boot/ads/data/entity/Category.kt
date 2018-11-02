@@ -10,19 +10,19 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "categories")
-class CategoryEntity: AbstractPersistable<Long>() {
+class Category: AbstractPersistable<Long>() {
 
     @OneToMany(orphanRemoval=true, fetch=FetchType.LAZY) // cascade = CascadeType.ALL,
     @JoinColumn(name="parent_id")
-    val children: List<CategoryEntity>? = null
+    val children: List<Category>? = null
 
     @ManyToOne(optional=true, fetch=FetchType.LAZY)
     @JoinColumn(name="parent_id", referencedColumnName="id")
-    val parent: CategoryEntity? = null
+    val parent: Category? = null
 
     @OneToMany(orphanRemoval=true, fetch=FetchType.LAZY) // cascade = CascadeType.ALL,
     @JoinColumn(name="category_id", referencedColumnName="id")
-    val posts: List<PostEntity>? = null
+    val posts: List<Post>? = null
 
     @Column(name="name", nullable=false)
     val name: String = ""

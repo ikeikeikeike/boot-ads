@@ -10,8 +10,13 @@
     <thead>
       <tr>
         <th>ID</th>
+        <th>image</th>
         <th>title</th>
         <th>slug</th>
+        <th>link</th>
+        <th>publish</th>
+        <th>publish_at</th>
+        <th>tagging</th>
         <th>category</th>
       </tr>
     </thead>
@@ -19,8 +24,13 @@
       {% for p in posts %}
       <tr>
         <td>{{ p.id }}</td>
+        <td>{{ p.image }}</td>
         <td>{{ p.title }}</td>
         <td>{{ p.slug }}</td>
+        <td><a href='{{ p.externalLink }}' target='_blank'>{{ p.externalLink }}</a></td>
+        <td>{{ p.publish }}</td>
+        <td>{{ p.publishAt }}</td>
+        <td>{% for tag in p.tags %} <span>{{ tag.name }}</span> {% endfor %}</td>
         <td>{{ p.category.name }}</td>
       </tr>
       {% endfor %}
