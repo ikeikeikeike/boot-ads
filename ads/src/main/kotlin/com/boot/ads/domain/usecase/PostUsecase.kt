@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class PostUsecase(private val repo: PostRepo) {
+
+    fun findBySlug(slug: String): Post? {
+        return repo.findBySlug(slug)  // translate to model
+    }
+
     /**
      * if name is null, search blank category's posts
      */
@@ -17,7 +22,7 @@ class PostUsecase(private val repo: PostRepo) {
     }
 
     fun findAll(pageable: Pageable): Page<Post> {
-        return repo.findAllByOrderByIdDesc(pageable)    // translate to model
+        return repo.findAllByOrderByIdDesc(pageable)  // translate to model
     }
 
     fun posts(name: String?, pageable: Pageable): Page<Post> {
@@ -26,4 +31,5 @@ class PostUsecase(private val repo: PostRepo) {
             else -> findByCategorySlug(name, pageable)  // translate to model
         }
     }
+
 }

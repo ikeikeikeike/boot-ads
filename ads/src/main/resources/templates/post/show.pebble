@@ -1,0 +1,15 @@
+{% extends 'base' %}
+
+{% block title %}{{ post.title }} | {{ title }}{% endblock title %}
+
+{% block header %}{% endblock header %}
+
+{% block content %}
+
+<h1>{{ post.title }}</h1>
+
+<div>
+  {{ post.content|raw }}
+</div>
+
+{% endblock content %}

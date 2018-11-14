@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface PostRepo : JpaRepository<Post, Long> {
+    fun findBySlug(slug: String): Post?
     fun findByCategorySlug(name: String?, pageable: Pageable): Page<Post>
     fun findByCategorySlugOrderByIdDesc(name: String?, pageable: Pageable): Page<Post>
     fun findAllByOrderByIdDesc(pageable: Pageable): Page<Post>
