@@ -24,3 +24,8 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### own
+/src/main/resources/static/js
+/src/main/resources/static/css
+/tmp
