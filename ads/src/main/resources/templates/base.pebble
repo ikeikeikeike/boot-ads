@@ -9,6 +9,7 @@
   <title>{% block title %}{{ title }}{% endblock title %}</title>
   <meta name="description" content="{% block description %}{{ description }}{% endblock description %}">
   <meta name="author" content="{% block author %}boot-ads{% endblock author %}">
+  <meta name="robots" content="noindex,follow">
 
   <link href='/css/prepared.min.css' rel="stylesheet">
   <link href='/css/vendor.min.css' rel="stylesheet">
@@ -21,9 +22,9 @@
 <div>
 
   {% block header %}
-  <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
+  <header class='site-header'>
+    <nav class="navbar navbar-expand-md" style='background-color: #3467b3!important'>
+      <div class='text-center wrap'>Site Title</div>
     </nav>
   </header>
   {% endblock header %}
