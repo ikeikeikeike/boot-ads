@@ -2,11 +2,13 @@
 
 {% block title %}{{ post.title }} | {{ title }}{% endblock title %}
 
-{% block header %}{% endblock header %}
+{% block nav %}{% endblock nav %}
 
 {% block content %}
 
-<h1>{{ post.title }}</h1>
+<div class='pb-2 mt-4 mb-2 border-bottom'>
+  <h1 class='h3'>{{ post.title }}</h1>
+</div>
 
 <div>
   {{ post.content|raw }}

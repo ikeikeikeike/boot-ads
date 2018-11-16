@@ -111,7 +111,7 @@ gulp.task('scss', () => {
   ];
   return gulp.src([
     './src/css/**/*.css',
-    './src/css/**/*.scss'
+    './src/css/**/*.scss',
   ])
   .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
   .pipe(postcss(processors))
