@@ -9,7 +9,7 @@
   <title>{% block title %}{{ title }}{% endblock title %}</title>
   <meta name="description" content="{% block description %}{{ description }}{% endblock description %}">
   <meta name="author" content="{% block author %}boot-ads{% endblock author %}">
-  <meta name="robots" content="noindex,follow">
+  <meta name="robots" content="noindex,nofollow,noarchive">
 
   <link href='/css/prepared.min.css' rel="stylesheet">
   <link href='/css/vendor.min.css' rel="stylesheet">

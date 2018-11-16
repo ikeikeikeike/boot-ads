@@ -1,9 +1,3 @@
-
-img {
-    width: 100%;
-    height: 100%;
-}
-
 header.site-header nav {
     background-color: #3467b3!important
 }
@@ -23,4 +17,82 @@ header.site-header nav div.wrap {
     width: 100%;
     color: white;
     font-weight: bold;
+}
+
+body {
+    background-color: white;
+}
+
+main {
+    background-color: white;
+    margin-top: 24px!important;
+    margin-top: 1.5rem!important;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+    body {
+        background-color: #f2f2f2;
+    }
+
+    main {
+        padding: 15px;
+        padding-bottom: 8px!important;
+        padding-bottom: .5rem!important;
+        margin-top: 24px!important;
+        margin-top: 1.5rem!important;
+        margin-bottom: 8px!important;
+        margin-bottom: .5rem!important;
+        border-radius: 5px;
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        background-color: #f2f2f2;
+    }
+
+    main {
+        padding: 15px;
+        margin-bottom: 8px!important;
+        margin-bottom: .5rem!important;
+        padding-bottom: 8px!important;
+        padding-bottom: .5rem!important;
+        margin-top: 24px!important;
+        margin-top: 1.5rem!important;
+        border-radius: 5px;
+    }
+}
+
+.post img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+    .post img {
+        width: 75%;
+        height: 75%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .post img {
+        width: 50%;
+        height: 50%;
+    }
 }
