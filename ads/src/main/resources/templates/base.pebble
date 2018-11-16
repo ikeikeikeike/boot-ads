@@ -64,7 +64,7 @@
       </a>
       {% for c in categories %}
       <a class="flex-sm-fill text-sm-center nav-link
-        {% set path = '/categories/' + c.slug  %}
+        {% set path = pathjoin('/categories/', c.slug) %}
         {% if request.requestURI.startswith(path) %}active{% endif %}" href="{{ href(path) }}">
           {{ c.name }}
       </a>
@@ -85,9 +85,7 @@
 <script src='/js/prepared.min.js'></script>
 <script src='/js/vendor.min.js'></script>
 <script src='/js/app.min.js'></script>
-<script src='/js/bundle-development.js'></script>
+<script src='/js/bundle{% if beans.adsProp.env != "production" %}-{{ beans.adsProp.env }}{% endif %}.js'></script>
 {% block js %}{% endblock js %}
 
 
-</body>
-</html>

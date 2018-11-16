@@ -27,11 +27,11 @@
           {% if p.externalLink %}
             <a href='{{ p.externalLink }}' target='_blank'>{{ p.id }}</a>
           {% else %}
-            <a href='{{ href('/articles/' + p.slug) }}'>{{ p.id }}</a>
+            <a href='{{ href(pathjoin('/articles/', p.slug)) }}'>{{ p.id }}</a>
           {% endif %}
         </td>
         </td>
-        <td><img src='{{ href('//localhost:8000/assets/media/' + p.image) }}' style='width: 200px;'></td>
+        <td><img src='{{ href(urljoin(beans.adminProp.fqdn, 'assets/media', p.image)) }}' style='width: 200px;'></td>
         <td>{{ p.title }}</td>
         <td>{% if not p.externalLink %}<a href='{{ href('/articles/' + p.slug) }}'>{{ p.slug }}</a>{% endif %}</td>
         <td><a href='{{ p.externalLink }}' target='_blank'>{{ p.externalLink }}</a></td>
