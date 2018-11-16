@@ -1,0 +1,13 @@
+---
+
+press:
+  env: production
+
+
+admin:
+  fqdn: https://boot.com
+  html: //boot.com
+  port: 80
+  scheme: https
+  addr: boot.com
+
