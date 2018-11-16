@@ -6,11 +6,11 @@
 
 {% block content %}
 
-<div class='pb-2 mt-4 mb-2 border-bottom'>
+<div class='pb-2 mb-2 border-bottom'>
   <h1 class='h3'>{{ post.title }}</h1>
 </div>
 
-<div>
+<div class='post'>
   {{ post.content|raw }}
 </div>
 
