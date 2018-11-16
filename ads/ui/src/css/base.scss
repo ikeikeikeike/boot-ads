@@ -3,3 +3,24 @@ img {
     width: 100%;
     height: 100%;
 }
+
+header.site-header nav {
+    background-color: #3467b3!important
+}
+
+header.site-header nav div.wrap {
+    display: inline-block;
+    padding-top: 5px;
+    padding-top: .3125rem;
+    padding-bottom: 5px;
+    padding-bottom: .3125rem;
+    margin-right: 16px;
+    margin-right: 1rem;
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+}
