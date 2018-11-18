@@ -1,8 +1,9 @@
 # push as ikeikeikeike/boot-ads:built
 
 FROM gradle:jdk8-slim
+USER root
 
-WORKDIR /built
+WORKDIR /built/boot-ads
 
 COPY ./ ./
 
@@ -23,13 +24,12 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
                 make \
                 openssl \
                 libssl-dev \
-                ruby-mysql2 \
                 make \
-                libpq-dev\
-                postgresql-server-dev-all\
-                postgresql-client\
-                mysql-server \
+                default-mysql-client \
+                default-libmysqlclient-dev \
                 mysql-client \
+                mysql-common \
+                libpq-dev \
                 redis-tools \
                 redis-server \
                 gnupg \
@@ -38,7 +38,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
                 gnupg2 \
                 gnupg1 \
                 build-essential \
-                default-libmysqlclient-dev \
         && \
     curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash - \
         && \
@@ -48,7 +47,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
         && \
     rm -rf /var/lib/apt/lists/*
 
-# ENV RAILS_ENV=production
-
-WORKDIR /built/ads
-RUN (cd ./ui && npm install -g gulp@3.9.1 typings@2.1.1 webpack@4.25.1 typescript@3.1.6 && npm link gulp)
+WORKDIR /built/boot-ads/ads
+RUN (cd ./ui && npm install -g gulp@3.9.1 typings@2.1.1 webpack@4.25.1 typescript@3.1.6 && npm link gulp) \
+          && \
+    (cd ./ui && NODE_ENV=production gulp build) \
+          && \
+    gradle clean build -Penv=production
