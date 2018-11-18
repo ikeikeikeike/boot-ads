@@ -28,5 +28,6 @@
 ### own
 /src/main/resources/static/js
 /src/main/resources/static/css
+/src/main/resources/templates
 /src/main/resources/application-production.yml
 /tmp
