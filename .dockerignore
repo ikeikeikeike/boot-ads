@@ -1,0 +1,6 @@
+*
+!ads
+ads/.idea
+ads/build
+ads/gradle/
+ads/ui/node_modules
