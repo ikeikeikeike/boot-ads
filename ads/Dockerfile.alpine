@@ -1,23 +1,23 @@
 # there is no ci
 #
 FROM ikeikeikeike/boot-ads:built as noci
-WORKDIR /workspace/boot-ads
+WORKDIR /workspace/boot-ads/ads
 
 COPY ./ ./
 
-RUN mv /built/boot-ads/ads/ui/node_modules /workspace/boot-ads/ui/
-RUN (cd ./ads/ui && npm install -g gulp@3.9.1 typings@2.1.1 webpack@4.25.1 typescript@3.1.6 && npm link gulp) \
+RUN cp -Pr /built/boot-ads/ads/ui/node_modules /workspace/boot-ads/ads/ui/
+RUN (cd ./ui && npm install -g gulp@3.9.1 typings@2.1.1 webpack@4.25.1 typescript@3.1.6 && npm link gulp) \
           && \
-    (cd ./ui && NODE_ENV=production gulp build) \
+    (cd ./ui && npm install && NODE_ENV=production gulp build) \
           && \
-    (cd ./ads && gradle clean build -Penv=production)
+    gradle clean build -x test -Penv=production
 
 # main
 
 FROM openjdk:8-jre-alpine
-WORKDIR /apps/boot-ads
+WORKDIR /apps/boot-ads/ads
 
-COPY --from=noci /workspace/boot-ads/ads/build/libs/ads-0.0.1-SNAPSHOT.jar /apps/boot-ads/ads.jar
+COPY --from=noci /workspace/boot-ads/ads/build/libs/ads-0.0.1-SNAPSHOT.jar /apps/boot-ads/ads/ads.jar
 
 RUN apk add --no-cache bash \
   && apk add -U --no-cache ca-certificates
