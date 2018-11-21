@@ -6,8 +6,6 @@ spring:
   output:
     ansi:
       enabled: detect
-  profiles:
-    active: dev
   datasource:
     url: jdbc:mysql://localhost:3306/ads_development?useSSL=false
     username: ${DB_USER:root}

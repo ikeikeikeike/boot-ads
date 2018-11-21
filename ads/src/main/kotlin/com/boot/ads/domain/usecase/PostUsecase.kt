@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service
 class PostUsecase(private val repo: PostRepo) {
 
     fun findBySlug(slug: String): Post? {
-        return repo.findBySlug(slug)  // translate to model
+        return repo.findBySlugAndPublish(slug, true)  // translate to model
     }
 
     /**
