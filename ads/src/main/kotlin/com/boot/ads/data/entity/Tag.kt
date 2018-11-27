@@ -8,6 +8,8 @@ import javax.persistence.*
 @Table(name = "taggit_tag")
 class Tag: AbstractPersistable<Long>() {
 
+    // lateinit var
+
     @Column(name="name", nullable=false)
     val name: String = ""
 
@@ -26,6 +28,8 @@ class Tag: AbstractPersistable<Long>() {
 @Entity
 @Table(name = "posts_tags")
 class PostsTag: AbstractPersistable<Long>() {
+
+    // lateinit var
 
     @ManyToOne(optional=false, fetch= FetchType.LAZY)
     @JoinColumn(name="post_id", referencedColumnName="id") // name="content_object_id"

@@ -12,6 +12,8 @@ import javax.persistence.*
 @Table(name = "categories")
 class Category: AbstractPersistable<Long>() {
 
+    // lateinit var
+
     @OneToMany(orphanRemoval=true, fetch=FetchType.LAZY) // cascade = CascadeType.ALL,
     @JoinColumn(name="parent_id")
     val children: List<Category>? = null

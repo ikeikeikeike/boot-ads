@@ -1,6 +1,7 @@
 package com.boot.ads.ui.advice
 
 import com.boot.ads.domain.usecase.CategoryUsecase
+import com.boot.ads.domain.usecase.SiteUsecase
 import org.slf4j.LoggerFactory
 import org.springframework.data.domain.PageRequest
 import org.springframework.ui.Model
@@ -10,13 +11,15 @@ import org.springframework.web.bind.annotation.ModelAttribute
 
 
 @ControllerAdvice
-class BaseAdvice(private val usecase: CategoryUsecase) {
+class BaseAdvice(private val categoryCase: CategoryUsecase, private val siteCase: SiteUsecase) {
 
     @ModelAttribute
     fun addAttributes(model: Model) {
-        model["title"] = "Ads"
-        model["description"] = "Description here"
-        model["categories"] = usecase.findAll(PageRequest.of(0, Integer.MAX_VALUE))
+        val site = siteCase.current()
+        model["domain"] = site?.domain ?: "localhost"
+        model["title"] = site?.name ?: "Site Name"
+        model["description"] = site?.name ?: "Site Name"
+        model["categories"] = categoryCase.findAll(PageRequest.of(0, Integer.MAX_VALUE))
     }
 
     companion object {

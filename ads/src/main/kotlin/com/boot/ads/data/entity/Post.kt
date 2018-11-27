@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany
 @Table(name = "posts")
 class Post: AbstractPersistable<Long>() {
 
+    // lateinit var
+
     // userId: reference to User.id
 
     @ManyToOne(optional=true, fetch=FetchType.LAZY)
