@@ -16,7 +16,7 @@ class AdsProperties {
 @Configuration
 class AdsPropertiesConfiguration(val prop: AdsProperties) {
     @Bean(name = ["adsProp"])
-    fun AdsProp(): AdsProperties {
+    fun adsProp(): AdsProperties {
         return prop
     }
 }

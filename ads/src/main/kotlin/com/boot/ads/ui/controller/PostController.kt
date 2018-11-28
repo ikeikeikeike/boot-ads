@@ -14,7 +14,7 @@ import java.util.*
 class PostController(private val usecase: PostUsecase) {
 
     @GetMapping(value=["articles/{slug}"])
-    fun Show(@PathVariable("slug", required=true) slug: String, model: Model): String {
+    fun show(@PathVariable("slug", required=true) slug: String, model: Model): String {
         val post = usecase.findProd(slug)
         if (post === null) {
             throw NotFound()
@@ -25,7 +25,7 @@ class PostController(private val usecase: PostUsecase) {
     }
 
     @GetMapping(value=["__articles__/{slug}"])
-    fun Any(@PathVariable("slug", required=true) slug: String, model: Model): String {
+    fun any(@PathVariable("slug", required=true) slug: String, model: Model): String {
         val post = usecase.findAny(slug)
         if (post === null) {
             throw NotFound()
