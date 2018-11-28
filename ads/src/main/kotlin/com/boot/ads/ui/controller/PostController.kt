@@ -7,6 +7,7 @@ import org.springframework.ui.Model
 import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import java.util.*
 
 
 @Controller
@@ -14,11 +15,23 @@ class PostController(private val usecase: PostUsecase) {
 
     @GetMapping(value=["articles/{slug}"])
     fun Show(@PathVariable("slug", required=true) slug: String, model: Model): String {
-        val post = usecase.findBySlug(slug)
+        val post = usecase.findProd(slug)
         if (post === null) {
             throw NotFound()
         }
 
+        model["post"] = post
+        return "post/show"
+    }
+
+    @GetMapping(value=["__articles__/{slug}"])
+    fun Any(@PathVariable("slug", required=true) slug: String, model: Model): String {
+        val post = usecase.findAny(slug)
+        if (post === null) {
+            throw NotFound()
+        }
+
+        model["today"] = Date()
         model["post"] = post
         return "post/show"
     }

@@ -31,8 +31,8 @@ class Post: AbstractPersistable<Long>() {
     @Column(name="slug", nullable=false)
     val slug: String = ""
 
-    @Column(name="image", nullable=false)
-    val image: String = ""
+    @Column(name="image", nullable=true)
+    val image: String? = null
 
     @Column(name="title", nullable=false)
     val title: String = ""

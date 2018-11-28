@@ -10,11 +10,16 @@ import org.springframework.stereotype.Service
 @Service
 class PostUsecase(private val repo: PostRepo) {
 
-    fun findBySlug(slug: String): Post? {
+    fun findProd(slug: String): Post? {
         return repo.findBySlugAndPublish(slug, true)  // translate to model
     }
 
-    /**
+    fun findAny(slug: String): Post? {
+        return repo.findBySlug(slug)  // translate to model
+    }
+
+    /*
+    * *
      * if name is null, search blank category's posts
      */
     fun findByCategorySlug(name: String?, pageable: Pageable): Page<Post> {
